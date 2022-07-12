@@ -1,4 +1,4 @@
-package bank;
+// package bank;
 import java.util.Scanner;
 
 class BankDetails {
@@ -70,14 +70,24 @@ public class BankingApp {
 
 	public static void main(String[] args) {
 	  Scanner sc = new Scanner(System.in);
+      // below verifies login information
+      System.out.print("Enter Username: ");
+      String username = sc.nextLine();
+      System.out.print("Enter Password: ");
+      String password = sc.nextLine();
+
+
+
 	  //below creates initial accounts
-      System.out.print("How many number of customers do you want to input? ");
-      int n = sc.nextInt();
-      BankDetails C[] = new BankDetails[n];
-      for (int i = 0;i < C.length; i++) {
-    	  C[i] = new BankDetails();
-    	  C[i].openAccount();
-      }
+      if(username.equals("admin") && (password.equals("123"))) {
+        System.out.print("How many number of customers do you want to input? ");
+        int n = sc.nextInt();
+        BankDetails C[] = new BankDetails[n];
+        for (int i = 0;i < C.length; i++) {
+            C[i] = new BankDetails();
+            C[i].openAccount();
+        }
+      
       
       //loop runs until number 5 is not pressed to exit
       
@@ -144,5 +154,11 @@ public class BankingApp {
       }
       while (ch != 5);
 	}
+    else {
+        System.out.println("The password or username you have entered is incorrect. Try again. ");
+        main(null);
+    }
 
+  }
+   
 }
